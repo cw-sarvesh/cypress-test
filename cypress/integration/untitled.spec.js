@@ -7,7 +7,12 @@
 
 describe('My First Test', () => {
 	it('Visit Carwale and Enter Car Query in Global Search Bar', () => {
+		// To set customized viewport size, use cy.viewport() command
+		// cy.viewport('iphone-xr');
+
 		cy.visit('http://stg.carwale.com/');
+		// Encapsulate the code in a function to make it reusable like login function this must be in support/commands.js
+		// cy.login('fake@gmail.com', 'fakepassword');
 
 		cy.get('[data-testing-id="global-search-input"]').eq(1)
 			.type('Hyundai')
