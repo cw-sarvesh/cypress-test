@@ -6,13 +6,11 @@
 // https://on.cypress.io/writing-first-test
 
 describe('My First Test', () => {
-    it('Visits the Kitchen Sink', () => {
-        cy.visit('https://example.cypress.io')
+	it('Visits the Kitchen Sink', () => {
+		cy.visit('http://stg.carwale.com/');
 
-        cy.contains('type').click()
-
-        // Should be on a new URL which
-        // includes '/commands/actions'
-        cy.url().should('include', '/commands/actions')
-    })
-})
+		cy.get('[data-testing-id="global-search-input"]').eq(1)
+			.type('Hyundai')
+			.should('have.value', 'Hyundai');
+	});
+});
