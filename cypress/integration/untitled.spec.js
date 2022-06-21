@@ -6,11 +6,14 @@
 // https://on.cypress.io/writing-first-test
 
 describe('My First Test', () => {
-	it('Visits the Kitchen Sink', () => {
+	it('Visit Carwale and Enter Car Query in Global Search Bar', () => {
 		cy.visit('http://stg.carwale.com/');
 
 		cy.get('[data-testing-id="global-search-input"]').eq(1)
 			.type('Hyundai')
-			.should('have.value', 'Hyundai');
+            .should('have.value', 'Hyundai');
+        // Pick next element after input which is button
+        cy.get('[data-testing-id="Custom-Global-Search"]').next().click();
+        
 	});
 });
